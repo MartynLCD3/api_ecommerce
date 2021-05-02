@@ -6,6 +6,7 @@ const productsSchema = new mongoose.Schema({
     color: String,
     precio: Number,
     descripcion: String,
-    adicional: String
+    fecha: String,
+    hora: String
 });
 export const product = mongoose.model('products', productsSchema);
