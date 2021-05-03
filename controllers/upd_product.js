@@ -7,9 +7,9 @@ export const upd_product = (req,res) => {
             let prod_updated = {codigo:codigo,modelo:modelo,marca:marca,color:color,precio:precio,descripcion:descripcion,fecha:fecha,hora:hora};
             update_product(id,prod_updated,res);
         }else{
-            console.log("asignación de valores incompleta");
+            return res.json({msg:"asignación de valores incompleta"});
         }
     }catch(error){
-        return console.log("nombre de clave incorrecta"); 
+        return res.json({msg:"nombre de clave incorrecta"}); 
     }
 };
