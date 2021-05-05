@@ -13,14 +13,14 @@ app.use(express.json());
 app.use(cors());
 
 router.get('/',cors(),(req,res) => {
-    res.status(200).json({msg:"welcome to the ecommerce API"});
+    res.status(200).json({status:"ok"});
 });
 
 router.get('/products',cors(),(req,res) => {
-    Promise.all([get_products()]).then(objects => { 
+    Promise.all([get_products()]).then(objects => {
         let [products] = objects;
         res.status(200).json(products);
-    }) 
+    })
 });
 
 router.post('/new_product',cors(),(req,res) => {
@@ -38,7 +38,7 @@ router.delete('/:id',cors(),(req,res) => {
 app.use('/api',router);
 
 app.get('*',(req,res) => {
-    res.status(404).json({error:"página no encontrada"});
+    res.status(404).json({msg:"error"});
 });
 
 const port = process.env.PORT || 3000;

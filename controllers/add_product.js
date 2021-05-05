@@ -1,6 +1,6 @@
 import {create_product} from '../models/create_product.js';
-export const add_product = (req,res) => {    
-    let {codigo,modelo,marca,color,precio,descripcion} = req;   
+export const add_product = (req,res) => {
+    let {codigo,modelo,marca,color,precio,descripcion} = req;
     try{
         if(codigo.length != 0 &&  modelo.length != 0 && marca.length != 0 && color.length != 0 && precio.length != 0 && descripcion.length != 0){
             let fecha = new Date().toDateString();
@@ -11,9 +11,9 @@ export const add_product = (req,res) => {
             let prodInfo = {codigo:codigo,modelo:modelo,marca:marca,color:color,precio:precio,descripcion:descripcion,fecha:fecha,hora:horaCompleta};
             create_product(prodInfo,res);
         }else{
-            return res.json({msg:"asignación de valores incompleta"});
+            return res.json({msg:"error"});
         }
     }catch(error){
-        return res.json({msg:"nombre de clave incorrecta"}); 
+        return res.json({msg:"error"}); 
     }
 };
