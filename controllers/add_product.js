@@ -1,19 +1,19 @@
 import {create_product} from '../models/create_product.js';
 export const add_product = (req,res) => {
-    let {codigo,modelo,marca,color,precio,descripcion} = req;
+    let {code,model,brand,color,price,description} = req;
     try{
-        if(codigo.length != 0 &&  modelo.length != 0 && marca.length != 0 && color.length != 0 && precio.length != 0 && descripcion.length != 0){
-            let fecha = new Date().toDateString();
-            let hora = new Date().getHours();
-            let minutos = new Date().getMinutes();
-            let horaCompleta;
-            hora < 12 ? horaCompleta = `${hora}:${minutos} am` : horaCompleta = `${hora}:${minutos} pm`
-            let prodInfo = {codigo:codigo,modelo:modelo,marca:marca,color:color,precio:precio,descripcion:descripcion,fecha:fecha,hora:horaCompleta};
+        if(code.length != 0 &&  model.length != 0 && brand.length != 0 && color.length != 0 && price.length != 0 && description.length != 0){
+            let date = new Date().toDateString();
+            let hour = new Date().getHours();
+            let minutes = new Date().getMinutes();
+            let fullHour;
+            hour < 12 ? fullHour = `${hour}:${minutes} am` : fullHour = `${hour}:${minutes} pm`
+            let prodInfo = {code:code,model:model,brand:brand,color:color,price:price,description:description,date:date,hour:fullHour};
             create_product(prodInfo,res);
         }else{
             return res.json({msg:"error"});
         }
     }catch(error){
-        return res.json({msg:"error"}); 
+        return res.json({msg:"error"});
     }
 };

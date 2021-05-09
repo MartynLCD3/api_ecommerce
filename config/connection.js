@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-export const connection = (() => mongoose.connect('mongodb://localhost/baseClocks', {
+export const connection = (() => mongoose.connect('mongodb://localhost/baseProducts', {
   useNewUrlParser:true,
   useUnifiedTopology:true
 }, err => {

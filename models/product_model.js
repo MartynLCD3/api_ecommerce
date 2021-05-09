@@ -1,12 +1,12 @@
 import mongoose from 'mongoose';
 const productsSchema = new mongoose.Schema({
-    codigo: String,
-    modelo: String,
-    marca: String,
+    code: String,
+    model: String,
+    brand: String,
     color: String,
-    precio: Number,
-    descripcion: String,
-    fecha: String,
-    hora: String
+    price: Number,
+    description: String,
+    date: String,
+    hour: String
 });
 export const product = mongoose.model('products', productsSchema);
