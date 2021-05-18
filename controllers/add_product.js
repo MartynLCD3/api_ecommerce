@@ -2,7 +2,7 @@ import {create_product} from '../models/create_product.js';
 export const add_product = (req,res) => {
     let {code,model,brand,color,price,description,stock} = req;
 	if(code.length == 0 || model.length == 0 || brand.length == 0 || color.length == 0 || price.length == 0 || description.length == 0 || stock.length == 0) return res.status(404).json({msg:"error"});
-	let date = new Date().toDateString();
+	let date = new Date().toISOString().substr(0, 10);
         let hour = new Date().getHours();
         let minutes = new Date().getMinutes();
         let fullHour;

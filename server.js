@@ -5,6 +5,8 @@ import {add_product} from './controllers/add_product.js';
 import {get_products} from './controllers/get_products.js';
 import {upd_product} from './controllers/upd_product.js';
 import {del_product} from './controllers/del_product.js';
+import {save_product} from './controllers/savedProducts/save_product.js';
+import {del_saved_product} from './controllers/savedProducts/del_saved_product.js';
 
 const app = express();
 const router = express.Router();
@@ -35,8 +37,15 @@ router.delete('/:id',cors(),(req,res) => {
     del_product(req,res);
 });
 
-app.use('/api',router);
+router.post('/save_product',cors(),(req,res)=>{
+    save_product(req.body,res);
+});
 
+router.delete('/saved/:id',cors(),(req,res)=>{
+   del_saved_product(req,res);
+});
+
+app.use('/api',router);
 app.get('*',(req,res) => {
     res.status(404).json({msg:"error"});
 });
