@@ -7,6 +7,8 @@ import {upd_product} from './controllers/upd_product.js';
 import {del_product} from './controllers/del_product.js';
 import {save_product} from './controllers/savedProducts/save_product.js';
 import {del_saved_product} from './controllers/savedProducts/del_saved_product.js';
+import {control_saved_products} from './controllers/savedProducts/control_saved_products.js';
+import {get_saved_products} from './controllers/savedProducts/get_saved_products.js';
 
 const app = express();
 const router = express.Router();
@@ -39,6 +41,10 @@ router.delete('/:id',cors(),(req,res) => {
 
 router.post('/save_product',cors(),(req,res)=>{
     save_product(req.body,res);
+});
+
+router.get('/get_saved_products',cors(),(req,res)=>{
+    get_saved_products(req,res);
 });
 
 router.delete('/saved/:id',cors(),(req,res)=>{

@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 const saveProductSchema = new mongoose.Schema({
    idEvent: String,
+   eventName: String,
    code: String,
    model: String,
    brand: String,

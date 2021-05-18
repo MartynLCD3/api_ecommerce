@@ -1,9 +1,10 @@
 import {create_save_product} from '../../models/savedProducts/create_save_product.js';
 export const save_product = (req,res) => {
-   let {idEvent,code,model,brand,color,price,description,stock,day,check} = req;
+   let {idEvent,eventName,code,model,brand,color,price,description,stock,day,check} = req;
    if(!code) return res.status(200).json({msg:"error"});
    let info = {
 	idEvent:idEvent,
+	eventName:eventName,
 	code:code,
 	model:model,
 	brand:brand,
