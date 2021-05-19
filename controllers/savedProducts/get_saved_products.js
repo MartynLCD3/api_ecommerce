@@ -4,8 +4,9 @@ export const get_saved_products = (req,res) => {
 		let [saved_products] = objs;
 		let info = [];
 		for(let n of saved_products){
-			let {eventName,code,model,brand,color,price,description,stock,day} = n
+			let {_id,eventName,code,model,brand,color,price,description,stock,day} = n
 			let data = {
+				id:_id,
 				eventName:eventName,
 				code:code,
 				model:model,
@@ -14,9 +15,9 @@ export const get_saved_products = (req,res) => {
 				price:price,
 				description:description,
 				stock:stock,
-				day:day
+				day:day,
 			}
-			info.push(data)	
+			info.push(data)
 		}
 		res.status(200).json(info);
 	});
