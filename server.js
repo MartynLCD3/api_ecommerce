@@ -7,6 +7,7 @@ import {upd_product} from './controllers/upd_product.js';
 import {del_product} from './controllers/del_product.js';
 import {save_product} from './controllers/savedProducts/save_product.js';
 import {del_saved_product} from './controllers/savedProducts/del_saved_product.js';
+import {del_saved_product_id} from './controllers/savedProducts/del_saved_product_id.js';
 import {control_saved_products} from './controllers/savedProducts/control_saved_products.js';
 import {get_saved_products} from './controllers/savedProducts/get_saved_products.js';
 import {upd_saved_product} from './controllers/savedProducts/upd_saved_product.js';
@@ -60,6 +61,10 @@ router.put('/saved/event/:id',cors(),(req,res)=>{
 router.delete('/saved/:id',cors(),(req,res)=>{
    del_saved_product(req,res);
 });
+
+router.delete('/saved/identifier/:id',cors(),(req,res)=>{
+   del_saved_product_id(req,res);
+})
 
 app.use('/api',router);
 app.get('*',(req,res) => {

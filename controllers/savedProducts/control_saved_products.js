@@ -11,7 +11,7 @@ export const control_saved_products = (() => {
       hour < 12 ? fullHour = `${hour}:${minutes} am` : fullHour = `${hour}:${minutes} pm`;
       Array.from(products, x => {
          let {idEvent,code,model,brand,color,price,description,stock,check,day} = x
-	    if(check == "true" && day == today){
+	    if(check == "true" && day.trim() == today){
 	       let info = {     
 		  code:code,
 		  model:model,
